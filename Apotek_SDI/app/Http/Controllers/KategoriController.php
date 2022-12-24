@@ -106,7 +106,57 @@ class KategoriController extends Controller
         $data = Kategori::find($id);
         return response()->json(array(
             'status' => 'oke',
-            'msg' => view('kategori.edit', compact('data'))->render()
+            'msg' => view('kategori.getEditForm', compact('data'))->render()
         ), 200);
+    }
+
+    public function saveData(Request $request)
+    {
+        $id = $request->get('id');
+        $Kategori = Kategori::find($id);
+        $Kategori->name = $request->get('name');
+        $Kategori->save();
+        return response()->json(
+            array(
+                'status' => 'ok',
+                'msg' => 'Kategori berhasil diupdate'
+            ),
+            200
+        );
+    }
+    public function deleteData(Request $request)
+    {
+        try {
+            $id = $request->get('id');
+            $Kategori = Kategori::find($id);
+            $Kategori->delete();
+            return response()->json(array(
+                'status' => 'ok',
+                'msg' => 'Kategori berhasil dihapus'
+            ), 200);
+        } catch (\PDOException $e) {
+            return response()->json(array(
+                'status ' => ' error',
+                'msg' => 'Kategori gagal terhapus. Data masih berhubungan dengan fitur lain'
+            ), 200);
+        }
+    }
+    public function saveDataField(Request $request)
+    {
+        $id = $request->get('id');
+        $fname = $request->get('fname');
+        $value = $request->get('value');
+
+
+        $Kategori = Kategori::find($id);
+        $Kategori->$fname = $value;
+        $Kategori->save();
+        return response()->json(
+            array(
+                'status' => 'ok',
+                'msg' => 'Kategori berhasil diupdate'
+            ),
+            200
+        );
     }
 }
