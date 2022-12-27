@@ -32,7 +32,7 @@ class ObatController extends Controller
     {
         $supplier =Supplier::all();
         $kategori =Kategori::all();
-        return view('obat.create' , ['kategori'=>$kategori] );
+        return view('obat.create' , compact('supplier','kategori'));
     }
 
     /**
@@ -51,8 +51,9 @@ class ObatController extends Controller
         $obat->faskes_tk1 = !empty($request->get('faskes_tk1'))  ? 1 : 0; 
         $obat->faskes_tk2 = !empty($request->get('faskes_tk2'))  ? 1 : 0; 
         $obat->faskes_tk3 = !empty($request->get('faskes_tk3'))  ? 1 : 0; 
-        $obat->kategori_id=$request->get('kategori_id');
-        $obat->supplier_id=$request->get('supplier_id');
+        $obat->kategori_id=$request->get('rdoKategori');
+        $obat->supplier_id=$request->get('rdoSupplier');
+        // dd($request->get('rdoSupplier'));
         $obat->harga=$request->get('harga');
         
         $file = $request->file('gambar');
@@ -195,7 +196,7 @@ class ObatController extends Controller
         // dd($data);
         return response()->json(array(
             'status'=>'oke',
-            'msg'=>view('obat.update',compact('data','kategori','supplier'))->render()
+            'msg'=>view('obat.getEditForm',compact('data','kategori','supplier'))->render()
         ),200);
     }
 }
