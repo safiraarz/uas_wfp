@@ -12,32 +12,36 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware(['auth'])->group(function(){
+    Route::get('/', function () {
+        return view('welcome');
+    });
+    
+    Route::resource('obat', 'ObatController');
+    Route::post('/obat/getEditForm', 'ObatController@getEditForm')->name('obat.getEditForm');
+    Route::post('/obat/saveData', 'ObatController@saveData')->name('obat.saveData');
+    Route::post('/obat/deleteData', 'ObatController@deleteData')->name('obat.deleteData');
+    
+    Route::resource('kategori', 'KategoriController');
+    Route::post('/kategori/getEditForm', 'KategoriController@getEditForm')->name('kategori.getEditForm');
+    Route::post('/kategori/saveData', 'KategoriController@saveData')->name('kategori.saveData');
+    Route::post('/kategori/deleteData', 'KategoriController@deleteData')->name('kategori.deleteData');
+    Route::post('/kategori/saveDataField', 'KategoriController@saveDataField')->name('kategori.saveDataField');
+    
+    Route::resource('users', 'UserController');
+    
+    Route::resource('supplier', 'SupplierController');
+    Route::post('/supplier/getEditForm', 'SupplierController@getEditForm')->name('supplier.getEditForm');
+    Route::post('/supplier/saveData', 'SupplierController@saveData')->name('supplier.saveData');
+    Route::post('/supplier/saveDataField', 'SupplierController@saveDataField')->name('supplier.saveDataField');
+    Route::post('/supplier/deleteData', 'SupplierController@deleteData')->name('supplier.deleteData');
+    
+    
+    
 });
 
-Route::resource('obat', 'ObatController');
-Route::post('/obat/getEditForm', 'ObatController@getEditForm')->name('obat.getEditForm');
-Route::post('/obat/saveData', 'ObatController@saveData')->name('obat.saveData');
-Route::post('/obat/deleteData', 'ObatController@deleteData')->name('obat.deleteData');
-
-Route::resource('kategori', 'KategoriController');
-Route::post('/kategori/getEditForm', 'KategoriController@getEditForm')->name('kategori.getEditForm');
-Route::post('/kategori/saveData', 'KategoriController@saveData')->name('kategori.saveData');
-Route::post('/kategori/deleteData', 'KategoriController@deleteData')->name('kategori.deleteData');
-Route::post('/kategori/saveDataField', 'KategoriController@saveDataField')->name('kategori.saveDataField');
-
-Route::resource('users', 'UserController');
-
-Route::resource('supplier', 'SupplierController');
-Route::post('/supplier/getEditForm', 'SupplierController@getEditForm')->name('supplier.getEditForm');
-Route::post('/supplier/saveData', 'SupplierController@saveData')->name('supplier.saveData');
-Route::post('/supplier/saveDataField', 'SupplierController@saveDataField')->name('supplier.saveDataField');
-Route::post('/supplier/deleteData', 'SupplierController@deleteData')->name('supplier.deleteData');
-
-
 Auth::routes();
-
+    
 Route::get('/home', 'HomeController@index')->name('home');
+
 
