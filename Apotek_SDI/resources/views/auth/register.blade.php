@@ -61,6 +61,17 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="roles-row" class="col-md-4 col-form-label text-md-right">{{ __('Role') }}</label>
+
+                            <div class="col-md-6">
+                                <select name="roles" id="roles" form="rolesform">
+                                    <option value="pemilik">Pemilik</option>
+                                    <option value="karyawan">Karyawan</option>
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
