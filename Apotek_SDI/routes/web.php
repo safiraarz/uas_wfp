@@ -36,3 +36,8 @@ Route::post('/supplier/saveData', 'SupplierController@saveData')->name('supplier
 Route::post('/supplier/saveDataField', 'SupplierController@saveDataField')->name('supplier.saveDataField');
 Route::post('/supplier/deleteData', 'SupplierController@deleteData')->name('supplier.deleteData');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
