@@ -483,7 +483,7 @@ License: You must have a valid license purchased only from themeforest(the above
 						</form>
 					</li>
 					<li class="start active ">
-						<a href="index.html">
+						<a href="{{url('/welcome')}}">
 							<i class="icon-home"></i>
 							<span class="title">Dashboard</span>
 							<span class="selected"></span>
