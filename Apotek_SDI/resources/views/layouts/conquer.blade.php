@@ -507,6 +507,48 @@ License: You must have a valid license purchased only from themeforest(the above
 							<span class="title">Master Supplier</span>
 						</a>
 					</li>
+					<li >
+						<a href="javascript:;">
+						<i class=" icon-folder"></i>
+						<span class="title">Pembeli</span>
+						<span class="arrow "></span>
+						</a>
+						<ul class="sub-menu">
+							<li>
+								<a href="">
+								<i class="fa fa-group"></i>
+								<span class="title">Data Pembeli</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li >
+						<a href="javascript:;">
+						<i class=" icon-folder"></i>
+						<span class="title">Report</span>
+						<span class="arrow "></span>
+						</a>
+						<ul class="sub-menu">
+							<li>
+								<a href="">Data obat terlaris</a>
+							</li>
+							<li>
+								<a href="">Data customer terloyal</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="{{url('/')}}">
+							<i class="icon-home"></i>
+							<span class="title">Profil</span>
+						</a>
+					</li>
+					<!-- <li class="last ">
+						<a href="" onclick="document.getElementById('formlogoutdash').submit();">
+						<i class="icon-user"></i>
+						<span class="title">Logout</span>
+						</a>
+					</li> -->
 				</ul>
 				<!-- END SIDEBAR MENU -->
 			</div>

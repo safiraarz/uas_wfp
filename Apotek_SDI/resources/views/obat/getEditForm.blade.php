@@ -71,9 +71,7 @@
 					<label>Kategori Obat</label>
 					<select class="form-control" name="rdoKategori">
 						@foreach($kategori as $k)
-							@if($data->kategori_id == $k->id)
-								<option value="{{$k->id}}">{{$k->name}}</option>
-							@endif
+							<option value="{{ $k->id }}" {{ $k->id == $data->kategori_id ? 'selected' : ''}}>{{ $k->name }}</option>
 						@endforeach
 					</select>
 				</div>
@@ -81,9 +79,7 @@
 					<label>Supplier</label>
 					<select class="form-control" name="rdoSupplier">
 						@foreach($supplier as $s)
-							@if($data->supplier_id == $s->id)
-								<option value="{{$s->id}}">{{$s->name}}</option>
-							@endif
+							<option value="{{$s->id}}" {{ $s->id == $data->supplier_id ? 'selected' : ''}}>{{ $s->name }}</option>
 						@endforeach
 					</select>
 				</div>
