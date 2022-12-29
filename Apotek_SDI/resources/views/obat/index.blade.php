@@ -110,16 +110,12 @@
               <textarea type="text" class="form-control" name="deskripsi"></textarea>
             </div>
             <div class="form-group">
-              <label>Faskes TK1</label>
-              <input type="checkbox" name="faskes_tk1" class="form-control">
-            </div>
-            <div class="form-group">
-              <label>Faskes TK2</label>
-              <input type="checkbox" name="faskes_tk2" class="form-control">
-            </div>
-            <div class="form-group">
-              <label>Faskes TK3</label>
-              <input type="checkbox" name="faskes_tk3" class="form-control">
+              <label>Fasilitas Kesehatan</label>
+              <div class="checkbox-list">
+                <label><input type="checkbox" name="faskes_tk1" class="form-control">Tingkat 1</label>
+                <label><input type="checkbox" name="faskes_tk2" class="form-control">Tingkat 2</label>
+                <label><input type="checkbox" name="faskes_tk3" class="form-control">Tingkat 3</label>
+              </div>
             </div>
             <div class="form-group">
               <label>Kategori</label>

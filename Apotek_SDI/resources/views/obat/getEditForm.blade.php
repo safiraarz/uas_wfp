@@ -41,23 +41,9 @@
 				<div class="form-group">
 					<label>Fasilitas Kesehatan</label>
 					<div class="checkbox-list">
-                    @if($data->faskes_tk1 == 0)
-                        <label><input type="checkbox" name="cbFaskes1" value="{{$data->faskes_tk1}}"> 1 </label>
-                    @else
-                        <label><input type="checkbox" name="cbFaskes1" value="{{$data->faskes_tk1}}" checked> 1 </label>
-                    @endif
-						
-					@if($data->faskes_tk2 == 0)
-                        <label><input type="checkbox" name="cbFaskes1" value="{{$data->faskes_tk2}}"> 2 </label>
-                    @else
-                        <label><input type="checkbox" name="cbFaskes1" value="{{$data->faskes_tk2}}" checked> 2 </label>
-                    @endif
-
-                    @if($data->faskes_tk3 == 0)
-                        <label><input type="checkbox" name="cbFaskes1" value="{{$data->faskes_tk3}}"> 3 </label>
-                    @else
-                        <label><input type="checkbox" name="cbFaskes1" value="{{$data->faskes_tk3}}" checked> 3 </label>
-                    @endif
+						<label><input type="checkbox" name="cbFaskes1" id="faskes_tk1" {{ ($data->faskes_tk1 == 1) ? 'checked' : ''}}> Tingkat 1</label>
+						<label><input type="checkbox" name="cbFaskes2" id="faskes_tk2" {{ ($data->faskes_tk2 == 1) ? 'checked' : ''}}> Tingkat 2</label>
+						<label><input type="checkbox" name="cbFaskes3" id="faskes_tk3" {{ ($data->faskes_tk3 == 1) ? 'checked' : ''}}> Tingkat 3</label>
 					</div>
 				</div>
 				<div class="form-group">
