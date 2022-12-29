@@ -10,7 +10,7 @@ class Transaksi extends Model
 
     public function obat()
     {
-        return $this->belongsToMany('App\Obat', 'obat_transaksi', 'transaksi_id', 'obat_id')->withPivot('kuantitas', 'harga');;
+        return $this->belongsToMany('App\Obat', 'transaksi_obat', 'transaksi_id', 'obat_id')->withPivot('kuantitas', 'harga');;
     }
 
     public function tambahObat($cart, $user)

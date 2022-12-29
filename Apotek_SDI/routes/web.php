@@ -12,15 +12,18 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::middleware(['auth'])->group(function(){
-    Route::get('/', function () {
-        return view('home');
-    });
+//Route::middleware(['auth'])->group(function(){
+    // Route::get('/', function () {
+    //     return view('home');
+    // });
 
     Route::get('/welcome', function () {
         return view('welcome');
     });
     
+    Route::get('/','ObatController@front_index');
+    Route::get('cart','ObatController@cart');
+    Route::get('add-to-cart/{id}','ObatController@addToCart');
     Route::resource('obat', 'ObatController');
     Route::post('/obat/getEditForm', 'ObatController@getEditForm')->name('obat.getEditForm');
     Route::post('/obat/saveData', 'ObatController@saveData')->name('obat.saveData');
@@ -42,7 +45,7 @@ Route::middleware(['auth'])->group(function(){
     
     
     
-});
+//});
 
 Auth::routes();
     

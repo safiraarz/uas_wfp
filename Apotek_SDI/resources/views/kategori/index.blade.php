@@ -1,4 +1,7 @@
 @extends('layouts.conquer')
+@section('title')
+Kategori
+@endsection
 @section('content')
 
 <div class="container">

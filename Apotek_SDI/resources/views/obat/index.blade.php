@@ -1,4 +1,7 @@
 @extends('layouts.conquer')
+@section('title')
+Obat
+@endsection
 @section('content')
 <div class="container">
   @if(session('status'))
