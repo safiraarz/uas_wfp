@@ -26,9 +26,9 @@
                 <tr>
                     <td data-th="Product">
                         <div class="row">
-                            <div class="col-sm-3 hidden-xs"><img src="{{ asset(($details['photo']  == '') ? 'img/no_image.png' : 'img/'.$details['photo'] ) }}" alt="..." class="img-responsive"/></div>
+                            <div class="col-sm-3 hidden-xs"><img src="{{ asset(($details['photo']  == '') ? 'images/no_image.png' : 'images/'.$details['photo'] ) }}" alt="..." width="90" height="60"/></div>
                             <div class="col-sm-9">
-                                <h4 class="nomargin">{{$details['name']}}</h4>
+                                <h6 class="nomargin">{{$details['name']}}</h6>
                             </div>
                         </div>
                     </td>

@@ -43,7 +43,8 @@ use Illuminate\Support\Facades\Route;
     Route::post('/supplier/saveDataField', 'SupplierController@saveDataField')->name('supplier.saveDataField');
     Route::post('/supplier/deleteData', 'SupplierController@deleteData')->name('supplier.deleteData');
     
-    
+    Route::resource('transaksi', 'TransaksiController');
+    Route::post('/transaksi/showAjax', 'TransaksiController@showAjax')->name('transaksi.showAjax');
     
 //});
 

@@ -21,24 +21,39 @@ Transaksi
             <tr>
                 <th>ID</th>
                 <th>Pembeli</th>
-                <th>Kasir</th>
                 <th>Tanggal Transaksi</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($data as $d)
-            <tr id='tr_{{$d->id}}'>
-                <td>{{$d->id}}</td>
-                <td class='editable' id='td_name_{{$d->id}}'>{{$d->name}}</td>
+            @foreach($transaksi as $ts)
+            <tr>
+                <td>{{$ts->id}}</td>
+                <td>{{$ts->user->name}}</td>
+                <td>{{$ts->tanggal_transaksi}}</td>
                 <td>
-                    <a href="#modalEdit" data-toggle='modal' class='btn btn-warning btn-xs' onclick="getEditForm({{$d->id}})">EDIT</a>
-                    <a class='btn btn-danger btn-xs' onclick="if(confirm('Apakah yakin ingin menghapus data?')) deleteDataRemoveTR({{$d->id}})">DELETE</a>
+                <a class="btn btn-default" data-toggle="modal" href="#basic" 
+                    onclick="getDetailData({{$ts->id}});">Lihat Rincian Pembelian</a>
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
+</div>
+<div class="modal fade" id="basic" tabindex="-1" role="basic" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" >
+            <div class="modal-header">
+                <h4 class="Modal Title">Rincian</h4>
+            </div>
+            <div class="modal-body" id="msg">
+                
+            </div>
+            <div class="modal-footer">
+                <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
+            </div>
+        </div>
+    </div>
 </div>
 <br>
 @endsection
@@ -47,7 +62,7 @@ Transaksi
     function getDetailData(id){
         $.ajax({
             type:'POST',
-            url:'{{route("transaction.showAjax")}}',
+            url:'{{route("transaksi.showAjax")}}',
             data:{'_token':'<?php echo csrf_token() ?>',
                 'id':id
                 },

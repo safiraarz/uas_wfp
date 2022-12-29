@@ -515,7 +515,7 @@ License: You must have a valid license purchased only from themeforest(the above
 						</a>
 						<ul class="sub-menu">
 							<li>
-								<a href="">
+								<a href="{{ url('transaksi') }}">
 								<i class="fa fa-group"></i>
 								<span class="title">Data Pembeli</span>
 								</a>
