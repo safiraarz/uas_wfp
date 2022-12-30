@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::middleware(['auth'])->group(function(){
+// Route::middleware(['auth'])->group(function(){
     Route::get('/', function () {
         return view('welcome');
     });
@@ -35,10 +35,15 @@ Route::middleware(['auth'])->group(function(){
     Route::post('/supplier/saveData', 'SupplierController@saveData')->name('supplier.saveData');
     Route::post('/supplier/saveDataField', 'SupplierController@saveDataField')->name('supplier.saveDataField');
     Route::post('/supplier/deleteData', 'SupplierController@deleteData')->name('supplier.deleteData');
+
+    Route::Resource('pembeli', PembeliController::class);
+    Route::Resource('transaksi', TransaksiController::class);
+    Route::Resource('laporan', LaporanController::class);
+
     
     
     
-});
+// });
 
 Auth::routes();
     

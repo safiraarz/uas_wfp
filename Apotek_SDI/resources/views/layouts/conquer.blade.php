@@ -507,6 +507,24 @@ License: You must have a valid license purchased only from themeforest(the above
 							<span class="title">Master Supplier</span>
 						</a>
 					</li>
+					<li>
+						<a href="{{route('transaksi.index')}}">
+							<i class="icon-home"></i>
+							<span class="title">Transaksi Beli</span>
+						</a>
+					</li>
+					<li>
+						<a href="{{route('pembeli.index')}}">
+							<i class="icon-home"></i>
+							<span class="title">Membership</span>
+						</a>
+					</li>
+					<li>
+						<a href="{{route('laporan.index')}}">
+							<i class="icon-home"></i>
+							<span class="title">Laporan</span>
+						</a>
+					</li>
 				</ul>
 				<!-- END SIDEBAR MENU -->
 			</div>
