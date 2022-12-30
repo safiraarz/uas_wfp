@@ -636,6 +636,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	<script src="assets/scripts/index.js" type="text/javascript"></script>
 	<script src="assets/scripts/tasks.js" type="text/javascript"></script>
 	<script src="assets/plugins/jquery.editable.min.js" type="text/javascript"></script>
+
 	<!-- END PAGE LEVEL SCRIPTS -->
 	<script>
 		jQuery(document).ready(function() {

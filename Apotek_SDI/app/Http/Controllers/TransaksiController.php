@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Transaksi;
-use App\TransaksiObat;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -93,15 +92,15 @@ class TransaksiController extends Controller
     {
         $cart = session()->get('cart');
         $user = Auth::user();
-
+    
         $t = new Transaksi;
         $t->users_id = $user->id;
         $t->tanggal_transaksi = Carbon::now()->toDatetimeString();
-        $t->save();
-        $total_harga = $t->TambahObat($cart,$user);
-        // dd($total_harga);
+        $total_harga = $t->tambahObat($cart,$user);
         $t->total = $total_harga;
+        // dd($total_harga);
         $t->save();
+        
         session()->forget('cart');
         return redirect('/');        
     }
@@ -123,4 +122,5 @@ class TransaksiController extends Controller
             'msg'=> view('transaksi.showmodal',compact('data', 'pembeli','total'))->render()
         ), 200);
     }
+
 }

@@ -167,4 +167,12 @@ class ObatController extends Controller
     public function cart(){
         return view('frontend.cart');
     }
+
+    public function deleteItemCart($id)
+    {
+        $cart = session()->get("cart");
+        unset($cart[$id]);
+        session()->put("cart", $cart);
+        return redirect()->back()->with("status","Obat berhasil dihapus dari keranjang");
+    }
 }
