@@ -96,6 +96,7 @@ class TransaksiController extends Controller
         $t = new Transaksi;
         $t->users_id = $user->id;
         $t->tanggal_transaksi = Carbon::now()->toDatetimeString();
+        $t->save();
         $total_harga = $t->tambahObat($cart,$user);
         $t->total = $total_harga;
         // dd($total_harga);

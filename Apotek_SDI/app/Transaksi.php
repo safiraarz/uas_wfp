@@ -15,6 +15,7 @@ class Transaksi extends Model
 
     public function tambahObat($cart, $user)
     {
+        
         $total = 0;
         foreach ($cart as $id => $details) {
             $total += $details['quantity'] * $details['price'];
