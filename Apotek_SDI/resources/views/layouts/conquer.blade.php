@@ -507,6 +507,7 @@ License: You must have a valid license purchased only from themeforest(the above
 							<span class="title">Master Supplier</span>
 						</a>
 					</li>
+<<<<<<< HEAD
 					<li >
 						<a href="javascript:;">
 						<i class=" icon-folder"></i>
@@ -549,6 +550,26 @@ License: You must have a valid license purchased only from themeforest(the above
 						<span class="title">Logout</span>
 						</a>
 					</li> -->
+=======
+					<li>
+						<a href="{{route('transaksi.index')}}">
+							<i class="icon-home"></i>
+							<span class="title">Transaksi Beli</span>
+						</a>
+					</li>
+					<li>
+						<a href="{{route('pembeli.index')}}">
+							<i class="icon-home"></i>
+							<span class="title">Membership</span>
+						</a>
+					</li>
+					<li>
+						<a href="{{route('laporan.index')}}">
+							<i class="icon-home"></i>
+							<span class="title">Laporan</span>
+						</a>
+					</li>
+>>>>>>> f8584fed4d4828c83c41d3370108fd5b2501f369
 				</ul>
 				<!-- END SIDEBAR MENU -->
 			</div>
