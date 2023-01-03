@@ -45,6 +45,11 @@ License: You must have a valid license purchased only from themeforest(the above
 	<link href="assets/css/pages/tasks.css" rel="stylesheet" type="text/css" />
 	<link href="assets/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color" />
 	<link href="assets/css/custom.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+
+	<!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css"> -->
+	<!-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script> -->
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> -->
 	<!-- END THEME STYLES -->
 	<link rel="shortcut icon" href="favicon.ico" />
 	
@@ -656,7 +661,13 @@ License: You must have a valid license purchased only from themeforest(the above
 	<script src="assets/scripts/app.js" type="text/javascript"></script>
 	<script src="assets/scripts/index.js" type="text/javascript"></script>
 	<script src="assets/scripts/tasks.js" type="text/javascript"></script>
+<<<<<<< HEAD
+	<!-- <script src="{{ asset('assets/plugins/jquery.editable.min.js')}}" type="text/javascript"></script> -->
+	<script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.4.1/css/buttons.dataTables.min.css">
+=======
 	<script src="assets/plugins/jquery.editable.min.js" type="text/javascript"></script>
+>>>>>>> 059f013211be6a5804d46b49cd8a4cbadb4dd967
 
 	<!-- END PAGE LEVEL SCRIPTS -->
 	<script>

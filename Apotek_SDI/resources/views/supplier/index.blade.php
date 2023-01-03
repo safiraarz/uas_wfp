@@ -1,49 +1,65 @@
 @extends('layouts.conquer')
+<<<<<<< HEAD
+@section('judul_halaman')
+    Master Categories
+=======
 @section('title')
 Supplier
+>>>>>>> 059f013211be6a5804d46b49cd8a4cbadb4dd967
 @endsection
 @section('content')
 
-<div class="container">
-    @if(session('status'))
-    <div class="alert alert-success">
-        {{session('status')}}
-    </div>
-    @endif
-    @if(session('error'))
-    <div class="alert alert-danger">
-        {{session('error')}}
-    </div>
-    @endif
-    <h2>Supplier Table</h2>
-    <div>
-        <a href="#modalCreate" data-toggle='modal' class="btn btn-info" type="button">Tambah Supplier</a>
-    </div>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nama</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($data as $d)
-            <tr id='tr_{{$d->id}}'>
-                <td>{{$d->id}}</td>
-                <td class='editable' id='td_name_{{$d->id}}'>{{$d->name}}</td>
-                <td>
-                    <a href="#modalEdit" data-toggle='modal' class='btn btn-warning btn-xs' onclick="getEditForm({{$d->id}})">EDIT</a>
-                    <a class='btn btn-danger btn-xs' onclick="if(confirm('Apakah yakin ingin menghapus data?')) deleteDataRemoveTR({{$d->id}})">DELETE</a>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-</div>
-<br>
+    <!-- BEGIN Portlet PORTLET-->
+    <div class="page-container">
+          @if(session('status'))
+            <div class="alert alert-success">
+                {{session('status')}}
+            <div>
+            @endif
 
+            @if(session('error'))
+            <div class="alert alert-danger">
+                {{session('error')}}
+            <div>
+            @endif
+      </div>
+
+      <div class="portlet">
+        <div class="portlet-title">
+          <div class="caption">
+            <i class="fa fa-reorder"></i>Master Supplier
+          </div>
+            <div class="actions">
+                <a href="#modalCreate" data-toggle='modal' class="btn btn-info" type="button">Tambah Supplier</a>
+            </div>
+        </div>
+		<div class="portlet-body">
+            <table id='myTable' class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nama</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach($data as $d)
+                <tr id='tr_{{$d->id}}'>
+                    <td>{{$d->id}}</td>
+                    <td class='editable' id='td_name_{{$d->id}}'>{{$d->name}}</td>
+                    <td>
+                        <a href="#modalEdit" data-toggle='modal' class='btn btn-warning btn-xs' onclick="getEditForm({{$d->id}})">EDIT</a>
+                        <a class='btn btn-danger btn-xs' onclick="if(confirm('Apakah yakin ingin menghapus data?')) deleteDataRemoveTR({{$d->id}})">DELETE</a>
+                    </td>
+                </tr>
+                @endforeach
+                </tbody>
+            </table>         
+          </div>                          
+        </div> 
+	</div>
 @endsection
+
 <!-- modal add new -->
 <div class="modal fade" id="modalCreate" tabindex="-1" role="basic" aria-hidden="true">
     <div class="modal-dialog">
@@ -80,6 +96,8 @@ Supplier
 </div>
 @section('javascript')
 <script>
+    $('#myTable').DataTable();
+
     function getEditForm(id) {
         $.ajax({
                 type: 'POST',
