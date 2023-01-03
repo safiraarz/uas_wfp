@@ -535,10 +535,10 @@ License: You must have a valid license purchased only from themeforest(the above
 						</a>
 						<ul class="sub-menu">
 							<li>
-								<a href="">Data obat terlaris</a>
+								<a href="">Laporan Transaksi Bulanan</a>
 							</li>
 							<li>
-								<a href="">Data customer terloyal</a>
+								<a href="">Laporan Poin Membership</a>
 							</li>
 						</ul>
 					</li>
