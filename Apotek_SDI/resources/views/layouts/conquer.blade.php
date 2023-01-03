@@ -512,7 +512,6 @@ License: You must have a valid license purchased only from themeforest(the above
 							<span class="title">Master Supplier</span>
 						</a>
 					</li>
-<<<<<<< HEAD
 					<li >
 						<a href="javascript:;">
 						<i class=" icon-folder"></i>
@@ -555,26 +554,12 @@ License: You must have a valid license purchased only from themeforest(the above
 						<span class="title">Logout</span>
 						</a>
 					</li> -->
-=======
-					<li>
-						<a href="{{route('transaksi.index')}}">
-							<i class="icon-home"></i>
-							<span class="title">Transaksi Beli</span>
-						</a>
-					</li>
 					<li>
 						<a href="{{route('pembeli.index')}}">
 							<i class="icon-home"></i>
 							<span class="title">Membership</span>
 						</a>
 					</li>
-					<li>
-						<a href="{{route('laporan.index')}}">
-							<i class="icon-home"></i>
-							<span class="title">Laporan</span>
-						</a>
-					</li>
->>>>>>> f8584fed4d4828c83c41d3370108fd5b2501f369
 				</ul>
 				<!-- END SIDEBAR MENU -->
 			</div>
@@ -661,14 +646,10 @@ License: You must have a valid license purchased only from themeforest(the above
 	<script src="assets/scripts/app.js" type="text/javascript"></script>
 	<script src="assets/scripts/index.js" type="text/javascript"></script>
 	<script src="assets/scripts/tasks.js" type="text/javascript"></script>
-<<<<<<< HEAD
 	<!-- <script src="{{ asset('assets/plugins/jquery.editable.min.js')}}" type="text/javascript"></script> -->
 	<script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 	<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.4.1/css/buttons.dataTables.min.css">
-=======
 	<script src="assets/plugins/jquery.editable.min.js" type="text/javascript"></script>
->>>>>>> 059f013211be6a5804d46b49cd8a4cbadb4dd967
-
 	<!-- END PAGE LEVEL SCRIPTS -->
 	<script>
 		jQuery(document).ready(function() {
