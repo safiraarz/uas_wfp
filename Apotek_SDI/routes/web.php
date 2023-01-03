@@ -12,10 +12,21 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+<<<<<<< HEAD
+
+    // Route::get('/', function () {
+    //     return view('home');
+    // });
+
+    Route::get('/welcome', function () {
+=======
 // Route::middleware(['auth'])->group(function(){
     Route::get('/', function () {
+>>>>>>> f8584fed4d4828c83c41d3370108fd5b2501f369
         return view('welcome');
     });
+    
+    Route::get('/','ObatController@front_index');
     
     Route::resource('obat', 'ObatController');
     Route::post('/obat/getEditForm', 'ObatController@getEditForm')->name('obat.getEditForm');
@@ -42,7 +53,18 @@ use Illuminate\Support\Facades\Route;
 
     
     
+    Route::post('/transaksi/showAjax', 'TransaksiController@showAjax')->name('transaksi.showAjax');
     
+<<<<<<< HEAD
+// Route::middleware(['can:member-permission'])->group(function(){
+    Route::get('cart','ObatController@cart');
+    Route::get('add-to-cart/{id}','ObatController@addToCart');
+    Route::get('/delete-item-cart/{id}', 'ObatController@deleteItemCart');
+    Route::resource('transaksi', 'TransaksiController');
+    Route::get('/checkout', 'TransaksiController@form_submit_front');
+    Route::get('/submit_checkout', 'TransaksiController@submit_front')->name('submitcheckout');
+=======
+>>>>>>> f8584fed4d4828c83c41d3370108fd5b2501f369
 // });
 
 Auth::routes();

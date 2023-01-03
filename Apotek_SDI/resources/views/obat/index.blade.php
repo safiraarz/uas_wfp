@@ -1,4 +1,7 @@
 @extends('layouts.conquer')
+@section('title')
+Obat
+@endsection
 @section('content')
 <div class="container">
   @if(session('status'))
@@ -70,34 +73,13 @@
             </div>s
           </td> -->
           <td>
-            <a href="#modalEdit" data-toggle='modal' class='btn btn-warning btn-xs' onclick="getEditForm({{$d->id}})">EDIT</a>
+            <a href="#modalEdit" data-toggle="modal" class="btn btn-warning btn-xs" onClick="getEditForm({{$d->id}})">EDIT</a>
             <a class='btn btn-danger btn-xs' onclick="if(confirm('Are you sure you wanna delete this data?')) deleteDataRemoveTR({{$d->id}})">DELETE</a>
           </td>
         </tr>
         @endforeach
       </tbody>
     </table>
-    <div id="carouselMultiItemExample" class="carousel slide carousel-dark text-center" data-mdb-ride="carousel">
-      <div class="carousel-inner py-3">
-        <div class="row">
-          @foreach ($data as $obat)
-          <div class="col-sm col-md-4">
-            <br>
-            <div class="card">
-              <img src="{{ asset ('images/'.$obat->gambar)}}" alt="" style="width: 100%; height: 200px;">
-              <div class="detailobat">
-                <h3>{{ $obat->nama_obat }}</h3>
-                <p>
-                  {{ $obat->formula }}
-                </p>
-                <a href="#!" class="btn btn-primary">Details</a>
-              </div>
-            </div>
-          </div>
-          @endforeach
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 @endsection
@@ -131,30 +113,26 @@
               <textarea type="text" class="form-control" name="deskripsi"></textarea>
             </div>
             <div class="form-group">
-              <label>Faskes TK1</label>
-              <input type="checkbox" name="faskes_tk1" class="form-control">
-            </div>
-            <div class="form-group">
-              <label>Faskes TK2</label>
-              <input type="checkbox" name="faskes_tk2" class="form-control">
-            </div>
-            <div class="form-group">
-              <label>Faskes TK3</label>
-              <input type="checkbox" name="faskes_tk3" class="form-control">
+              <label>Fasilitas Kesehatan</label>
+              <div class="checkbox-list">
+                <label><input type="checkbox" name="faskes_tk1" class="form-control">Tingkat 1</label>
+                <label><input type="checkbox" name="faskes_tk2" class="form-control">Tingkat 2</label>
+                <label><input type="checkbox" name="faskes_tk3" class="form-control">Tingkat 3</label>
+              </div>
             </div>
             <div class="form-group">
               <label>Kategori</label>
-              <select class="form-control" name="kategori" id="kategori">
-                @foreach ($kategori as $item)
-                <option value="{{ $item->id }}">{{ $item->name }}</option>
+              <select class="form-control" name="rdoKategori" id="kategori">
+                @foreach ($kategori as $k)
+                <option value="{{ $k->id }}">{{ $k->name }}</option>
                 @endforeach
               </select>
             </div>
             <div class="form-group">
               <label>Supplier</label>
-              <select class="form-control" name="supplier" id="supplier">
-                @foreach ($supplier as $item)
-                <option value="{{ $item->id }}">{{ $item->name }}</option>
+              <select class="form-control" name="rdoSupplier" id="supplier">
+                @foreach ($supplier as $s)
+                <option value="{{ $s->id }}">{{ $s->name }}</option>
                 @endforeach
               </select>
             </div>
@@ -174,12 +152,25 @@
     </div>
   </div>
 </div>
+
+<!-- update modal -->
 <div class="modal fade" id="modalEdit" tabindex="-1" role="basic" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content" id='modalContent'>
-    </div>
+      <div class="modal-content" id="modalContent">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h4 class="modal-title">Edit Kategori</h4>
+        </div>
+        <div class="modal-body">
+          
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
   </div>
 </div>
+
 @section('javascript')
 <script>
   function getEditForm(id) {

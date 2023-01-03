@@ -19,7 +19,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 <head>
 	<meta charset="utf-8" />
-	<title>Conquer | Admin Dashboard Template</title>
+	<title>@yield('title', 'Admin Dashboard | ApotikU')</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
 	<meta content="" name="description" />
@@ -488,7 +488,7 @@ License: You must have a valid license purchased only from themeforest(the above
 						</form>
 					</li>
 					<li class="start active ">
-						<a href="index.html">
+						<a href="{{url('/welcome')}}">
 							<i class="icon-home"></i>
 							<span class="title">Dashboard</span>
 							<span class="selected"></span>
@@ -512,6 +512,50 @@ License: You must have a valid license purchased only from themeforest(the above
 							<span class="title">Master Supplier</span>
 						</a>
 					</li>
+<<<<<<< HEAD
+					<li >
+						<a href="javascript:;">
+						<i class=" icon-folder"></i>
+						<span class="title">Pembeli</span>
+						<span class="arrow "></span>
+						</a>
+						<ul class="sub-menu">
+							<li>
+								<a href="{{ url('transaksi') }}">
+								<i class="fa fa-group"></i>
+								<span class="title">Data Pembeli</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li >
+						<a href="javascript:;">
+						<i class=" icon-folder"></i>
+						<span class="title">Report</span>
+						<span class="arrow "></span>
+						</a>
+						<ul class="sub-menu">
+							<li>
+								<a href="">Data obat terlaris</a>
+							</li>
+							<li>
+								<a href="">Data customer terloyal</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="{{url('/')}}">
+							<i class="icon-home"></i>
+							<span class="title">Profil</span>
+						</a>
+					</li>
+					<!-- <li class="last ">
+						<a href="" onclick="document.getElementById('formlogoutdash').submit();">
+						<i class="icon-user"></i>
+						<span class="title">Logout</span>
+						</a>
+					</li> -->
+=======
 					<li>
 						<a href="{{route('transaksi.index')}}">
 							<i class="icon-home"></i>
@@ -530,6 +574,7 @@ License: You must have a valid license purchased only from themeforest(the above
 							<span class="title">Laporan</span>
 						</a>
 					</li>
+>>>>>>> f8584fed4d4828c83c41d3370108fd5b2501f369
 				</ul>
 				<!-- END SIDEBAR MENU -->
 			</div>
@@ -616,9 +661,13 @@ License: You must have a valid license purchased only from themeforest(the above
 	<script src="assets/scripts/app.js" type="text/javascript"></script>
 	<script src="assets/scripts/index.js" type="text/javascript"></script>
 	<script src="assets/scripts/tasks.js" type="text/javascript"></script>
+<<<<<<< HEAD
 	<!-- <script src="{{ asset('assets/plugins/jquery.editable.min.js')}}" type="text/javascript"></script> -->
 	<script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 	<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.4.1/css/buttons.dataTables.min.css">
+=======
+	<script src="assets/plugins/jquery.editable.min.js" type="text/javascript"></script>
+>>>>>>> 059f013211be6a5804d46b49cd8a4cbadb4dd967
 
 	<!-- END PAGE LEVEL SCRIPTS -->
 	<script>

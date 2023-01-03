@@ -62,12 +62,11 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="roles-row" class="col-md-4 col-form-label text-md-right">{{ __('Role') }}</label>
-
+                            <label for="roles-row" class="col-md-4 col-form-label text-md-right">Peran</label>
                             <div class="col-md-6">
-                                <select name="roles" id="roles" form="rolesform">
-                                    <option value="pemilik">Pemilik</option>
-                                    <option value="karyawan">Karyawan</option>
+                                <select name="roles" id="roles" class="form-control">
+                                    <option value="owner">Pemilik</option>
+                                    <option value="pegawai">Karyawan</option>   
                                 </select>
                             </div>
                         </div>

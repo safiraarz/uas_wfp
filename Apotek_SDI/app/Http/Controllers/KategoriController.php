@@ -16,6 +16,7 @@ class KategoriController extends Controller
     {
         $data = Kategori::all();
         $jumlah = $data->count();
+        // dd($data);
         return view('kategori.index', ['data' => $data, 'jumlah' => $jumlah]);
     }
 

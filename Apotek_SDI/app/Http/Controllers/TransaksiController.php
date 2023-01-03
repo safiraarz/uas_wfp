@@ -17,10 +17,9 @@ class TransaksiController extends Controller
      */
     public function index()
     {
-        $users = Auth::user();
-        $transaksi = Transaksi::where('users_id',$users->id)->get();
-        
-        return view('frontend.riwayat', compact('transaksi'));
+        $transaksi = Transaksi::all();
+        // dd($transaksi);
+        return view('transaksi.index', compact('transaksi'));
     }
 
     /**
@@ -93,15 +92,16 @@ class TransaksiController extends Controller
     {
         $cart = session()->get('cart');
         $user = Auth::user();
-
+    
         $t = new Transaksi;
         $t->users_id = $user->id;
         $t->tanggal_transaksi = Carbon::now()->toDatetimeString();
         $t->save();
-        $total_harga = $t->TambahObat($cart,$user);
-        // dd($total_harga);
+        $total_harga = $t->tambahObat($cart,$user);
         $t->total = $total_harga;
+        // dd($total_harga);
         $t->save();
+        
         session()->forget('cart');
         return redirect('/');        
     }
@@ -111,22 +111,17 @@ class TransaksiController extends Controller
         return view("frontend.checkout");
     }
 
-    public function baru()
-    {   
-        $transaksi = Transaksi::all();
-        // dd($transaksi);
-        return view('transaksi.index', compact('transaksi'));
-    }
-
     public function showAjax(Request $request){
         $id = $request->get('id');
         $data = Transaksi::find($id);
+        // dd($data);
         $dataUsers = User::find($data->users_id);
         $pembeli = $dataUsers->name;
-        $totals = $data->total;
+        $total = $data->total;
         // dd($data->obat);
         return response()->json(array(
-            'msg'=> view('transaksi.showmodal',compact('data', 'pembeli','totals'))->render()
+            'msg'=> view('transaksi.showmodal',compact('data', 'pembeli','total'))->render()
         ), 200);
     }
+
 }

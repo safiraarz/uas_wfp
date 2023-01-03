@@ -32,7 +32,7 @@ class ObatController extends Controller
     {
         $supplier =Supplier::all();
         $kategori =Kategori::all();
-        return view('obat.create' , ['kategori'=>$kategori] );
+        return view('obat.create' , compact('supplier','kategori'));
     }
 
     /**
@@ -51,8 +51,9 @@ class ObatController extends Controller
         $obat->faskes_tk1 = !empty($request->get('faskes_tk1'))  ? 1 : 0; 
         $obat->faskes_tk2 = !empty($request->get('faskes_tk2'))  ? 1 : 0; 
         $obat->faskes_tk3 = !empty($request->get('faskes_tk3'))  ? 1 : 0; 
-        $obat->kategori_id=$request->get('kategori_id');
-        $obat->supplier_id=$request->get('supplier_id');
+        $obat->kategori_id=$request->get('rdoKategori');
+        $obat->supplier_id=$request->get('rdoSupplier');
+        // dd($request->get('rdoSupplier'));
         $obat->harga=$request->get('harga');
         
         $file = $request->file('gambar');
@@ -141,36 +142,30 @@ class ObatController extends Controller
         }
     }
 
-    public function front_index(Request $request)
-    {
-        $cari = !empty($request->get('cari'))  ? $request->get('cari') : session()->get("cari"); 
-
-        session()->put('cari',$cari);
-        $list_data = Obat::where('nama_obat', 'LIKE', '%'.session()->get("cari").'%')->paginate(8);
-        if ($request->ajax()) {
-            return view('frontend.page', ['obat'=>$list_data]);
-        }
-        return view('frontend.obat',['obat'=>$list_data]);
+    public function front_index(){
+        $obat = Obat::all();
+        return view('frontend.product', compact('obat'));
     }
-    public function addToCart($id)
-    {
-        $product = Obat::find($id);
-        $cart = session()->get("cart");
+    
+    public function addToCart($id){
+        $o = Obat::find($id);
+        $cart = session()->get('cart');
         if(!isset($cart[$id])){
             $cart[$id] = [
-                "name" => $product->nama_obat,
-                "formula" => $product->formula,
-                "kuantitas" => 1,
-                "harga" => $product->harga,
-                "gambar" => $product->gambar
+                "name"=>$o->nama_obat,
+                "quantity"=>1,
+                "price"=>$o->harga,
+                "photo"=>$o->gambar
             ];
+        }else{
+            $cart[$id]['quantity']++;
         }
-        else{
-            $cart[$id]["kuantitas"]++;
-        }
-        session()->put("cart", $cart);
-        return redirect()->back()->with("status","Obat ditambahkan ke keranjang");
+        session()->put('cart',$cart);
+        return redirect()->back()->with('success', "Obat berhasil ditambahkan ke keranjang!");
+    }
 
+    public function cart(){
+        return view('frontend.cart');
     }
 
     public function deleteItemCart($id)
@@ -178,24 +173,6 @@ class ObatController extends Controller
         $cart = session()->get("cart");
         unset($cart[$id]);
         session()->put("cart", $cart);
-        return redirect()->back()->with("status","Obat di keranjang berhasil dihapus");
-    }
-
-
-    public function cart()
-    {
-        return view("frontend.cart");
-    }
-
-    public function getEditForm(Request $request){
-        $id=$request->get('id');
-        $data= Obat::find($id);
-        $kategori = Kategori::all();
-        $supplier = Supplier::all();
-        // dd($data);
-        return response()->json(array(
-            'status'=>'oke',
-            'msg'=>view('obat.update',compact('data','kategori','supplier'))->render()
-        ),200);
+        return redirect()->back()->with("status","Obat berhasil dihapus dari keranjang");
     }
 }
